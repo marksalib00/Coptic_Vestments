@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deacon Vestments — Holy Theotokos & St. Athanasius</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maroon: #5C1A24;
+    --maroon-deep: #3D1019;
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-pale: #F5EDD8;
+    --cream: #FAF6EF;
+    --text: #1A0E0F;
+    --text-muted: #7A6050;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .header {
+    background: var(--maroon-deep);
+    padding: 48px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .top-rule { width:60px; height:2px; background:var(--gold); margin:0 auto 20px; }
+  .church-name {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    line-height: 1.7;
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .header h1 em { font-style:italic; color:var(--gold-light); }
+  .header-sub { font-size:14px; color:rgba(255,255,255,0.45); font-style:italic; margin-top:10px; }
+  .bottom-rule {
+    width:100px; height:1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 20px auto 0;
+  }
+  .intro {
+    background: var(--maroon);
+    padding: 28px 24px;
+    color: rgba(255,255,255,0.88);
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.85;
+    border-bottom: 3px solid var(--gold);
+    text-align: center;
+  }
+  .content { max-width: 680px; margin: 0 auto; padding-bottom: 60px; }
+  .white-block {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+    padding: 26px 22px;
+    margin: 28px 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .white-block-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .white-block p { font-size:17px; color:#3A2A1A; line-height:1.85; }
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 32px 16px 16px;
+  }
+  .divider::before, .divider::after { content:''; flex:1; height:1px; }
+  .divider::before { background: linear-gradient(to right, transparent, var(--gold)); }
+  .divider::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
+  .divider-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .role-note {
+    margin: 0 16px 24px;
+    background: rgba(92,26,36,0.06);
+    border: 1px solid rgba(92,26,36,0.15);
+    border-radius: 6px;
+    padding: 18px 20px;
+    font-size: 16px;
+    color: var(--maroon);
+    line-height: 1.8;
+    font-style: italic;
+    text-align: center;
+  }
+  .card {
+    margin: 0 16px 22px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(92,26,36,0.07);
+  }
+  .card-head {
+    background: var(--maroon);
+    padding: 16px 20px 14px;
+  }
+  .card-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 4px;
+  }
+  .card-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .card-name-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .card-name-ar { font-size:16px; color:var(--gold-light); font-style:italic; direction:rtl; }
+  .card-greek { font-size:12px; color:rgba(255,255,255,0.45); font-style:italic; margin-top:4px; }
+  .card-body { padding: 20px 20px 18px; }
+  .tags { margin-bottom:12px; }
+  .tag {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 6px;
+  }
+  .tag-h { background:rgba(92,26,36,0.08); color:var(--maroon); border:1px solid rgba(92,26,36,0.18); }
+  .tag-m { background:rgba(201,168,76,0.12); color:#8A6A20; border:1px solid rgba(201,168,76,0.28); }
+  .block { margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid rgba(201,168,76,0.12); }
+  .block:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+  .block p { font-size:17px; line-height:1.82; color:#2A1A1A; }
+
+  /* COMPARISON BOX */
+  .compare-box {
+    margin: 16px 0 0;
+    background: var(--gold-pale);
+    border-radius: 6px;
+    padding: 18px;
+  }
+  .compare-box-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .compare-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .compare-row:last-child { margin-bottom: 0; }
+  .compare-col {
+    flex: 1;
+    background: #fff;
+    border-radius: 5px;
+    padding: 12px;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .compare-title {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .compare-title.priest { color: var(--maroon); }
+  .compare-title.deacon { color: #8A6A20; }
+  .compare-col p { font-size: 14px; line-height: 1.6; color: #3A2A1A; }
+
+  .closing {
+    background: var(--maroon-deep);
+    margin: 28px 16px 0;
+    border-radius: 8px;
+    padding: 30px 22px;
+    text-align: center;
+  }
+  .closing p {
+    font-size: 17px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.84);
+    margin-bottom: 14px;
+  }
+  .closing p:last-child {
+    margin-bottom: 0;
+    font-style: italic;
+    color: var(--gold-light);
+    font-size: 18px;
+  }
+  .closing-rule { width:70px; height:1px; background:var(--gold); margin:18px auto; }
+  .footer {
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+    border-top: 1px solid rgba(201,168,76,0.18);
+    margin-top: 28px;
+    line-height: 1.7;
+  }
+  .footer strong {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--maroon);
+    font-style: normal;
+    margin-bottom: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="top-rule"></div>
+  <div class="church-name">Holy Theotokos & St. Athanasius<br>Coptic Orthodox Church · Cheshire, CT</div>
+  <h1>Vestments of the<br><em>Deacon</em></h1>
+  <div class="header-sub">Egyptian Festival · Sanctuary Tour</div>
+  <div class="bottom-rule"></div>
+</div>
+
+<!-- INTRO -->
+<div class="intro">
+  These are the vestments worn by a Coptic Orthodox deacon during the Divine Liturgy. The deacon's role is distinct from the priest's — and his vestments reflect that difference in a very deliberate way.
+</div>
+
+<div class="content">
+
+  <!-- WHO IS THE DEACON -->
+  <div class="white-block">
+    <div class="white-block-label">The Role of the Deacon</div>
+    <p>The deacon does not stand at the altar as the priest does. He moves — between the altar and the congregation. He leads the people in their responses, directs them when to kneel and when to rise, and serves as the bridge between the clergy and the faithful throughout the liturgy. This role of servant and intermediary goes back to the very beginnings of the church, and his vestments have expressed it for nearly fifteen hundred years.</p>
+  </div>
+
+  <div class="divider"><span class="divider-label">The Vestments</span></div>
+
+  <!-- 1. TONIA -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">01</div>
+      <div class="card-title-row">
+        <span class="card-name-en">The Tonia</span>
+        <span class="card-name-ar">طونية</span>
+      </div>
+      <div class="card-greek">Greek: Sticharion (στιχάριον)</div>
+    </div>
+    <div class="card-body">
+      <div class="tags">
+        <span class="tag tag-h">History</span>
+        <span class="tag tag-m">Meaning</span>
+      </div>
+      <div class="block">
+        <p>The Tonia is the long white robe worn as the base layer — and it is the one vestment shared by every rank of the clergy. Deacon, priest, and bishop all wear it. It is the oldest vestment in the tradition, appearing in the earliest records of Coptic liturgical practice.</p>
+      </div>
+      <div class="block">
+        <p>White was required for all clergy from the 4th and 5th centuries onward, connected in scripture to God's own garment in Daniel, to Christ at the Transfiguration, to the angels at the Resurrection, and to the saints in Revelation. It is also the color of the baptismal garment — a reminder that before any rank or role, the one wearing it has been clothed in Christ.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. BADRASHIL -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">02</div>
+      <div class="card-title-row">
+        <span class="card-name-en">The Badrashil</span>
+        <span class="card-name-ar">بدرشيل</span>
+      </div>
+      <div class="card-greek">Greek: Orarion (ὠράριον)</div>
+    </div>
+    <div class="card-body">
+      <div class="tags">
+        <span class="tag tag-h">History</span>
+        <span class="tag tag-m">Meaning</span>
+      </div>
+      <div class="block">
+        <p>The Badrashil is the stole worn on the deacon's left shoulder. It is one of the oldest vestments in the entire Coptic tradition. A 5th century letter by the Egyptian bishop Isidore of Pelusium already describes it — comparing it to the towel Christ wrapped around himself before washing the feet of his disciples at the Last Supper, pointing directly to the deacon's identity as a servant of the liturgy.</p>
+      </div>
+      <div class="block">
+        <p>The earliest ordination manuscripts consistently place it on the left shoulder of the deacon — and that placement is not incidental. It is the vestment of someone who moves and serves, not of someone who stands still at the altar.</p>
+      </div>
+
+      <!-- COMPARISON -->
+      <div class="compare-box">
+        <div class="compare-box-label">Priest vs. Deacon — The Same Garment, Two Roles</div>
+        <div class="compare-row">
+          <div class="compare-col">
+            <div class="compare-title priest">The Priest's Sadra</div>
+            <p>Worn around the neck, hanging straight down the front. He stands at the altar and offers the liturgy.</p>
+          </div>
+          <div class="compare-col">
+            <div class="compare-title deacon">The Deacon's Badrashil</div>
+            <p>Worn on the left shoulder diagonally. He moves between the altar and the people, always serving.</p>
+          </div>
+        </div>
+        <p style="font-size:14px; color:#5A4030; line-height:1.7; margin-top:10px; font-style:italic;">Historically, these two stoles began as the same garment — the difference was only in how each rank wore it. Over time they became distinct, but their shared origin reflects that both priest and deacon serve the same God, just in different ways.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <p>The deacon's vestments are simple by design. Two pieces — the white robe and the stole — carried forward from the earliest centuries of the church. What has never changed is what they communicate: purity before God, and readiness to serve His people.</p>
+    <div class="closing-rule"></div>
+    <p>"The congregation is to see less of the clergy and more of Christ — the true High Priest, present at every liturgy."<br><small style="font-size:13px; opacity:0.7;">— Kyrillos Tadros, Vestments of Glory and Honor (2019)</small></p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Holy Theotokos & St. Athanasius Coptic Orthodox Church</strong>
+  Cheshire, Connecticut · Egyptian Festival<br><br>
+  Sources: Mikhail, Ramez. <em>Coptica</em> 15 (2016) ·
+  Tadros, Kyrillos. <em>Vestments of Glory and Honor</em> (2019) ·
+  RIT 102, Coptic Orthodox Diocese of the Southern United States (2009)
+</div>
+
+</body>
+</html>
